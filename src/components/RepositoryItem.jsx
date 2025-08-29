@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View } from "react-native";
+import { Image, Text, View, StyleSheet } from "react-native";
 
 const RepositoryItem = ({ item }) => {
   const {
@@ -11,10 +11,19 @@ const RepositoryItem = ({ item }) => {
     forksCount,
     reviewCount,
     ratingAverage,
+    ownerAvatarUrl,
   } = item;
+
+  const styles = StyleSheet.create({
+    image: {
+      width: 50,
+      height: 50,
+    },
+  });
 
   return (
     <View>
+      <Image source={{ uri: ownerAvatarUrl }} style={styles.image}></Image>
       <Text>Full name: {fullName}</Text>
       <Text>Description: {description}</Text>
       <Text>Language: {language}</Text>
